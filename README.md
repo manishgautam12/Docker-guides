@@ -52,5 +52,48 @@ docker tag  image-id  docker-hub-username/repo-name:latest
 docker push <docker-hub-username>/<repository-name>:<tag>
 ```
 
-For source code check my repo.
+# Push the docker image on AWS ECR
+ To push the docker image on aws ECR, first AWS and create a repository in ECR.
+ ### Login using AWS credential
+ ```base
+aws configure
+```
+ And find all commands from the ECR. And push the docker image on AWS ECR.
+ After successful push the docker image in ECR.
+ ### Create an EC2 instance and enable your port in the security group
+ Connect the terminal.
+
+ ### Update System Packages
+ ```base
+sudo apt update
+```
+### Install AWS CLI using apt
+```base
+sudo apt install awscli
+```
+### Install Docker
+```base
+sudo apt install docker.io
+```
+### Start and Enable Docker Service
+```base
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+### Pull the Docker Image
+```base
+docker pull image-name:tag
+```
+### Verify the Pulled Image
+```base
+docker images
+```
+### Run the Docker Image
+```base
+docker run -p 8008:8008 -d <docker-image-name>
+ ```
+## check your Ip 
+#### IP_address:8008
+ 
+
                               
